@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Latihan Custom Event</title>
 </head>
@@ -11,21 +12,21 @@
     </div>
     <button id="btn-submit">Daftar Sekarang</button>
     <script>
-        //Membuat object custom event
-        const eventRegisterComplete = new Event('resgister-complete');
+        // membuat object custom event
+        const eventRegisterComplete = new Event('register-complete');
 
-        //Membuat object element dom
+        // membuat object element dom
         const messageElement = document.getElementById('message');
         const btnSubmit = document.getElementById('btn-submit');
 
-        //Handle untuk custom event
-        document.addEventListener('register-complete', function(e) {
+        // handle untuk custom event
+        document.addEventListener('register-complete', function (e) {
             messageElement.style.display = "flex";
         });
 
-        //Handle untuk event klik pada button
-        btnSubmit.addEventListener('click', function(e) {
-            //Trigger custom event register-complete
+        // handle untuk event klik pada button
+        btnSubmit.addEventListener('click', function (e) {
+            // trigger custom event register-complete
             document.dispatchEvent(eventRegisterComplete);
         });
     </script>
