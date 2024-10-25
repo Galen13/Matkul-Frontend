@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Click untuk menampilkan konsfirmasi.</p>
+    <button onclick="myFunction()">Hapus</button>
+    <p id="konfirmasi"> </p>
+    <script>
+        function myFunction() {
+            var txt;
+                var r = confirm("Apakah mau di hapus!");
+                if (r == true) {
+                    txt = "Data telah dihapus!";
+                } else {
+                    txt = "Kamu batal menghapus data!";
+                }
+        document.getElementById("konfirmasi").innerHTML = txt;
+        }
+    </script>
+</body>
+</html>

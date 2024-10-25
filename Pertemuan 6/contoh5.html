@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Nama Buah : <strong id="hasil"></strong></p>
+    <input type="text" placeholder="Masukkan nama buah" id="input">
+    <button id="submit">Submit</button>
+
+    <script>
+        var hasil = document.getElementById("hasil");
+        var submit = document.getElementById("submit")
+
+        submit.onclick = ambilnilai;
+
+        function ambilnilai() {
+            var text = document.getElementById("input").value;
+            hasil.innerHTML = text ;
+        }
+    </script>
+</body>
+</html>
