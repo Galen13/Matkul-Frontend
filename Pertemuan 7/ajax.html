@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Belajar Dasar Ajax Di STIKOM</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h1 class="card-title text-center mb-4">Cara Mengirim Data ke Server dengan Ajax</h1>
+                        <form method="POST" onsubmit="return sendData()">
+                            <div class="mb-3">
+                                <label for="title" class="form-label">Title</label>
+                                <input type="text" class="form-control" name="title" id="title" placeholder="Judul Artikel">
+                            </div>
+                            <div class="mb-3">
+                                <label for="body" class="form-label">Isi Artikel di Sini</label>
+                                <textarea class="form-control" id="body" name="body" placeholder="Isi artikel bla bla...." rows="10"></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary" name="send">Kirim Sekarang</button>
+                            </div>
+                            <div id="show" class="mt-3"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function sendData() {
+            var xhr = new XMLHttpRequest();
+            var url = "ajax.php";
+
+            const title = document.querySelector("#title").value;
+            const body = document.querySelector("#body").value;
+            const data = "title=" + title + "&body=" + body;
+
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onload = function() {
+                const response = JSON.parse(this.responseText);
+                const show = document.querySelector("#show");
+                show.innerHTML = `
+                    <div class="alert alert-success">
+                        <p class="mb-1"><strong>Judul Artikel:</strong> ${response.judul}</p>
+                        <p class="mb-0"><strong>Isi Artikel:</strong> ${response.isi}</p>
+                    </div>`;
+            };
+
+            xhr.send(data);
+            const show = document.querySelector("#show");
+            show.innerHTML = '<div class="alert alert-info">Processing...</div>';
+            return false;
+        }
+    </script>
+</body>
+</html>
