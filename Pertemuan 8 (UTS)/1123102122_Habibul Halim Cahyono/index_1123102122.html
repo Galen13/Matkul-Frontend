@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perhitungan Biaya Kirim Paket</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- CSS -->
+    <link rel="stylesheet" href="style_1223102122.css">
+</head>
+<body>
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header text-center">
+                        <h3 class="mb-0">
+                            <i class="bi bi-box-seam me-2"></i>
+                            PERHITUNGAN BIAYA KIRIM PAKET
+                        </h3>
+                    </div>
+                    <div class="card-body p-4">
+                        <form id="shippingForm">
+                            <div class="mb-4">
+                                <label class="form-label">
+                                    <i class="bi bi-upc-scan me-2"></i>
+                                    Nomor Resi
+                                </label>
+                                <input type="text" class="form-control" id="nomorResi" required 
+                                       placeholder="Masukkan nomor resi">
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label">
+                                    <i class="bi bi-box2-heart me-2"></i>
+                                    Berat Barang
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" class="form-control" id="beratBarang" 
+                                           step="0.1" required placeholder="Masukkan berat barang">
+                                    <span class="input-group-text">Kg</span>
+                                </div>
+                            </div>
+
+                            <div class="row mb-4">
+                                <div class="col-md-6 mb-3 mb-md-0">
+                                    <label class="form-label">
+                                        <i class="bi bi-geo-alt me-2"></i>
+                                        Kota Asal
+                                    </label>
+                                    <select class="form-select" id="kotaAsal" required>
+                                        <option value="">Pilih Kota Asal</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label class="form-label">
+                                        <i class="bi bi-geo-alt-fill me-2"></i>
+                                        Kota Tujuan
+                                    </label>
+                                    <select class="form-select" id="kotaTujuan" required>
+                                        <option value="">Pilih Kota Tujuan</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    <i class="bi bi-cash-coin me-2"></i>
+                                    Total Biaya Pengiriman
+                                </label>
+                                <div class="input-group">
+                                    <span class="input-group-text">Rp</span>
+                                    <input type="text" class="form-control" id="totalBiaya" 
+                                           readonly placeholder="0">
+                                </div>
+                            </div>
+
+                            <div class="mt-4">
+                                <div class="alert alert-info" role="alert">
+                                    <i class="bi bi-info-circle me-2"></i>
+                                    Total biaya akan dihitung otomatis setelah semua field diisi
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+    <script src="script_1123102122.js"></script>
+</body>
+</html>
