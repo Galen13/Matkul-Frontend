@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deskripsi Karakter Nier Automata</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-10">
+    <div class="grid grid-cols-3 gap-6">
+        <div class="bg-white p-5 rounded-lg shadow-md text-center">
+            <img src="assets/Yorha 2B.jpg" alt="Yorha 2B" class="mx-auto mb-4 rounded-full">
+            <h2 class="font-bold text-xl mb-3">Yorha 2B</h2>
+            <button class="fruit-btn bg-red-500 text-white px-4 py-2 rounded" data-fruit="waifu1">
+                Lihat Deskripsi
+            </button>
+        </div>
+        <div class="bg-white p-5 rounded-lg shadow-md text-center">
+            <img src="assets/Yorha A2.jpg" alt="Yorha A2" class="mx-auto mb-4 rounded-full">
+            <h2 class="font-bold text-xl mb-3">Yorha A2</h2>
+            <button class="fruit-btn bg-yellow-500 text-white px-4 py-2 rounded" data-fruit="waifu2">
+                Lihat Deskripsi
+            </button>
+        </div>
+        <div class="bg-white p-5 rounded-lg shadow-md text-center">
+            <img src="assets/Yorha Commander.jpg" alt="Yorha Commander" class="mx-auto mb-4 rounded-full">
+            <h2 class="font-bold text-xl mb-3">Yorha Commander</h2>
+            <button class="fruit-btn bg-green-500 text-white px-4 py-2 rounded" data-fruit="waifu3">
+                Lihat Deskripsi
+            </button>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="fruitModal" class="modal">
+        <div class="modal-content rounded-lg p-6 bg-white shadow-xl">
+            <span class="close-modal text-gray-600 text-right block cursor-pointer text-2xl">&times;</span>
+            <h2 id="fruitTitle" class="text-2xl font-bold mb-4 text-center"></h2>
+            <p id="fruitDescription" class="text-gray-700 text-center"></p>
+        </div>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+        const fruitDescriptions = {
+            waifu1: "YoRHa No.2 Type B, or just 2B, is one of the protagonists of NieR:Automata. She is a YoRHa android created to battle the Machine lifeforms that have invaded the planet on behalf of the surviving humans. She served during the 14th Machine War.2B is an all-purpose battle android, deployed as a member of the automated YoRHa infantry. She is equipped with a multitude of weapons for close quarters combat and can attack from range using the Pod support system.",
+            waifu2: "YoRHa Type A No.2, or just A2, is one of the protagonists of NieR:Automata, as well as the final boss in Branch D. She is also a major character in the YoRHa stage play.She is a prototype of the YoRHa android line, and combat data from her and her comrades were used to create the superior current lines, including YoRHa No.2 Type B and YoRHa No.9 Type S. She doesn't like to speak and often keeps to herself.Three years prior to the events of NieR:Automata, she was a member of the first YoRHa squadron deployed to Earth as part of the Pearl Harbor Descent during the early years of the 14th Machine War. Her alias at the time was No2 which is parsed in Automata as 'Number Two'",
+            waifu3: "Commander White, also known as just the Commander, is a minor character in NieR:Automata. As the commander of all YoRHa forces, she determines all large-scale strategies as well as directs, deploys, and oversees all units from her station at the Bunker outpost in Earth's orbit."
+        };
+
+        $('.fruit-btn').click(function() {
+            const fruit = $(this).data('fruit');
+            $('#fruitTitle').text($(this).siblings('h2').text());
+            $('#fruitDescription').text(fruitDescriptions[fruit]);
+            $('#fruitModal').fadeIn();
+        });
+
+        $('.close-modal').click(function() {
+            $('#fruitModal').fadeOut();
+        });
+
+        $(window).click(function(event) {
+            if ($(event.target).is('#fruitModal')) {
+                $('#fruitModal').fadeOut();
+            }
+        });
+    });
+    </script>
+</body>
+</html>

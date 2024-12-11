@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Belajar jQuery STIKOM</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#tombol").click(function() {
+                var satu = $("#satu").is(":checked") ? $("#satu").val() : "";
+                var dua = $("#dua").is(":checked") ? $("#dua").val() : "";
+                var tiga = $("#tiga").is(":checked") ? $("#tiga").val() : "";
+                alert(satu + " " + dua + " " + tiga);
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="checkbox" id="satu" value="Satu"> Satu<br>
+    <input type="checkbox" id="dua" value="Dua"> Dua<br>
+    <input type="checkbox" id="tiga" value="Tiga"> Tiga<br>
+    <button id="tombol">Ambil Nilai</button>
+</body>
+</html>
