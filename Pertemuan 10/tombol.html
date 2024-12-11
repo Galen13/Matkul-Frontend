@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Membuat Tombol dengan JQuery UI</title>
+    <script type="text/javascript" src="jquery/jquery.js"></script>
+    <script type="text/javascript" src="jquery ui/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="jquery ui/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script type="text/javascript">
+      $(document).ready(function() {
+          $('button,input[type="submit"],a').button();
+          $("#format").buttonset();
+          $(".checkbox-button-1").button({
+              icons: {
+                  primary: "ui-icon-locked"
+              },
+              text: false
+          });
+          $(".checkbox-button-2").button({
+              icons: {
+                  primary: "ui-icon-locked"
+              }
+          });
+          $(".checkbox-button-3").button({
+              icons: {
+                  primary: "ui-icon-gear",
+                  secondary: "ui-icon-triangle-1-s"
+              }
+          });
+
+          $(".checkbox-button-4").button({
+              icons: {
+                  primary: "ui-icon-gear",
+                  secondary: "ui-icon-triangle-1-s"
+              },
+              text: false
+          });
+
+          $("#radio").buttonset();
+
+          $("#rerun")
+              .button()
+              .click(function() {
+                  alert("Running the last action");
+              });
+
+          $("#rerun")
+              .next()
+              .button({
+                  text: false,
+                  icons: {
+                      primary: "ui-icon-triangle-1-s"
+                  }
+              })
+              .click(function() {
+                  var menu = $(this).parent().next().show().position({
+                      my: "left top",
+                      at: "left bottom",
+                      of: this
+                  });
+                  $(document).one("click", function() {
+                      menu.hide();
+                  });
+                  return false;
+              })
+              .parent()
+              .buttonset()
+              .next()
+              .hide()
+              .menu();
+
+          $("#beginning").button({
+              text: false,
+              icons: {
+                  primary: "ui-icon-seek-start"
+              }
+          });
+
+          $("#rewind").button({
+              text: false,
+              icons: {
+                  primary: "ui-icon-seek-prev"
+              }
+          });
+
+          $("#play").button({
+              text: false,
+              icons: {
+                  primary: "ui-icon-play"
+              }
+          })
+          .click(function() {
+              var options;
+              if ($(this).text() === "play") {
+                  options = {
+                      label: "pause",
+                      icons: {
+                          primary: "ui-icon-pause"
+                      }
+                  };
+              } else {
+                  options = {
+                      label: "play",
+                      icons: {
+                          primary: "ui-icon-play"
+                      }
+                  };
+              }
+              $(this).button("option", options);
+          });
+
+          $("#stop").button({
+              text: false,
+              icons: {
+                  primary: "ui-icon-stop"
+              }
+          })
+          .click(function() {
+              $("#play").button("option", {
+                  label: "play",
+                  icons: {
+                      primary: "ui-icon-play"
+                  }
+              });
+          });
+
+          $("#forward").button({
+              text: false,
+              icons: {
+                  primary: "ui-icon-seek-next"
+              }
+          });
+
+          $("#end").button({
+              text: false,
+              icons: {
+                  primary: "ui-icon-seek-end"
+              }
+          });
+
+          $("#shuffle").button();
+          $("#repeat").buttonset();
+      });
+    </script>
+    <style>
+      .ui-menu {
+        position: absolute;
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Membuat Tombol dengan jQuery UI</h1>
+
+    <h3>Default button</h3>
+    <button>Tombol</button>
+    <input type="submit" value="Tombol submit" />
+    <a href="#">Tombol link</a>
+
+    <h3>Checkbox button</h3>
+    <div id="format">
+      <input type="checkbox" id="check1" /><label for="check1">B</label>
+      <input type="checkbox" id="check2" /><label for="check2">I</label>
+      <input type="checkbox" id="check3" /><label for="check3">U</label>
+    </div>
+
+    <h3>Icon button</h3>
+    <button class="checkbox-button-1">Button with icon only</button>
+    <button class="checkbox-button-2">Button with icon on the left</button>
+    <button class="checkbox-button-3">Button with two icons</button>
+    <button class="checkbox-button-4">Button with two icons and no text</button>
+
+    <h3>Radio button</h3>
+    <div id="radio">
+      <input type="radio" id="radio1" name="radio" /><label for="radio1">Choice 1</label>
+      <input type="radio" id="radio2" name="radio" checked="checked" /><label for="radio2">Choice 2</label>
+      <input type="radio" id="radio3" name="radio" /><label for="radio3">Choice 3</label>
+    </div>
+
+    <h3>Split button</h3>
+    <div>
+      <button>Run last action</button>
+      <button>Select an action</button>
+      <ul>
+        <li>Save</li>
+        <li>Delete</li>
+        <li></li>
+      </ul>
+    </div>
+
+    <h3>Toolbar button</h3>
+    <div class="ui-widget-header ui-corner-all">
+      <button>Go to beginning</button>
+      <button>Rewind</button>
+      <button>Play</button>
+      <button>Stop</button>
+      <button>Fast forward</button>
+      <button>Go to end</button>
+      <input type="checkbox" id="shuffle" /><label for="shuffle">Shuffle</label>
+      <span id="repeat">
+        <input type="radio" id="repeat-none" name="repeat" checked="checked" /><label for="repeat-none">No Repeat</label>
+        <input type="radio" id="repeat-once" name="repeat" /><label for="repeat-once">Once</label>
+        <input type="radio" id="repeat-all" name="repeat" /><label for="repeat-all">All</label>
+      </span>
+    </div>
+  </body>
+</html>
