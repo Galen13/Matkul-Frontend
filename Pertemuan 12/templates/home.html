@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>YoRHa Database - STIKOM PGRI Banyuwangi</title>
+</head>
+<body>
+    <nav class="nier-nav">
+        <div class="nav-container">
+            <a href="main" class="nav-link">Database Home</a>
+            <a href="" class="nav-link">Academic Units</a>
+            <a href="" class="nav-link">Communications</a>
+            <a href="" class="nav-link">Archives</a>
+        </div>
+    </nav>
+    
+    <header class="nier-header">
+        <img src="{{ url_for('static', filename='img/Logo Hitam.jpeg') }}" class="logo">
+        <h1 class="terminal-text">Nier Automata</h1>
+    </header>
+
+    <section class="nier-section">
+        <h2 class="terminal-text">Database Entry: Educational Programs</h2>
+        <p class="terminal-text">
+            Accessing YoRHa Database...<br>
+            Location: STIKOM PGRI BANYUWANGI<br>
+            Programs Available: Information Technology, Information Management<br>
+            Core Programming Protocols:
+        </p>
+    </section>
+
+    <div class="nier-table">
+        <table>
+            <tr>
+                <td colspan="2" class="terminal-text">Protocol Analysis: MY WAIFU</td>
+            </tr>
+            <tr>
+                <td>
+                    <ul class="protocol-list">
+                        <li>YORHA 2B</li>
+                        <li>YORHA A2</li>
+                        <li>YORHA COMMANDER</li>
+                        <li>YORHA 2P</li>
+                    </ul>
+                </td>
+            </tr>
+            <tr>
+                <td><img src="{{ url_for('static', filename='img/Yorha 2B.jpeg') }}" class="android-profile"></td>
+            </tr>
+            <tr>
+                <td><img src="{{ url_for('static', filename='img/Yorha A2.jpeg') }}" class="android-profile"></td>
+            </tr>
+            <tr>
+                <td><img src="{{ url_for('static', filename='img/Yorha Commander.jpeg') }}" class="android-profile"></td>
+            </tr>
+            <tr>
+                <td><img src="{{ url_for('static', filename='img/Yorha 2P.jpeg') }}" class="android-profile"></td>
+            </tr>
+        </table>
+    </div>
+
+    <footer class="nier-footer">
+        <p class="terminal-text">YoRHa Database Access Point - STIKOM PGRI Banyuwangi &copy; All rights reserved</p>
+    </footer>
+</body>
+</html>
