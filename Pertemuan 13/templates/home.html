@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>NIER AUTOMATA</title>
+</head>
+<body>
+    <nav>
+        <a href="main">Home</a> |
+        <a href="jurusan/">Jurusan</a> |
+        <a href="kontak/">Kontak</a> |
+        <a href="Tentang_Kami/">Tentang Kami</a>
+    </nav>
+
+    <br />
+
+    <header style="text-align: center;">
+        <img src="{{ url_for('static', filename='img/Logo Hitam.jpeg') }}" width="500" height="200" style="border-radius: 50%;">
+        <h3>NIER AUTOMATA</h3>
+    </header>
+
+    <br />
+
+    <article style="text-align: center;">
+        <h3>Tentang Nier Automata</h3>
+        <p>
+            Nier Automata <br>
+            ................. <br>
+            ................. <br>
+        </p>
+    </article>
+
+    <div style="max-width: 600px; margin: 3em auto">
+        <table border="1" width="100%">
+            <thead>
+                <tr>
+                    <th colspan="2">Waifu Saya</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in container %}
+                <tr>
+                    <td>
+                        <ul>{{ row[3] }}</ul>
+                    </td>
+                    <td>
+                        <img src="{{ url_for('static', filename='img/' + row[4]) }}" width="50" height="50" style="border-radius: 50%;">
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <br>
+    <footer style="text-align: center;">
+        <p>Copyright &copy; STIKOM PGRI Banyuwangi</p>
+    </footer>
+</body>
+</html>
