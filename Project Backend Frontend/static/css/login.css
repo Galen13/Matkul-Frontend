@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    background-color: #cbcbcb;
+    font-family: 'Raleway', sans-serif;
+}
+.container {
+    height: 100vh;
+    align-items: center;
+}
+.row {
+    max-width: 900px;
+    width: 100%;
+}
+.img-fluid {
+    object-fit: cover;
+}
+input[type="email"], input[type="password"] {
+    border-radius: 5px;
+    margin-bottom: 3px;
+    
+}
+.text-danger {
+    font-size: 0.9em;
+}

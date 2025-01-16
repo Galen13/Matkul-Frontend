@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Data</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+</head>
+<body>
+    <div class="container mt-4">
+        <div class='row'>
+            <div class='col-5 mx-auto'>
+                <h3>Edit Data</h3><hr>
+                <form method='post' action='{{ url_for("edit_data", id=datas.id) }}' enctype="multipart/form-data">
+                    <div class='form-group'>
+                        <label>Tipe Kamar</label>
+                        <input type='text' name='nama_kamar' required class='form-control' value='{{datas.nama_kamar}}'>
+                    </div>
+                    <div class='form-group'>
+                        <label>Harga per Kamar</label>
+                        <input type='number' name='harga' required class='form-control' value='{{datas.harga}}'>
+                    </div>
+                    <div class='form-group'>
+                        <label>Slot Kamar</label>
+                        <input type='number' name='slot' required class='form-control' value='{{datas.slot}}'>
+                    </div>
+                    <div class='form-group'>
+                        <label>Deskripsi Kamar</label>
+                        <textarea name='deskripsi' class='form-control' rows='3'>{{datas.deskripsi}}</textarea>
+                    </div>
+                    <div class='form-group'>
+                        <label>Gambar Kamar</label>
+                        {% if datas.gambar %}
+                        <div class="mb-2">
+                            <img src="{{ url_for('static', filename=datas.gambar) }}" class="img-thumbnail" style="max-height: 200px;">
+                        </div>
+                        {% endif %}
+                        <input type='file' name='gambar' class='form-control-file'>
+                        <small class="text-muted">Biarkan kosong jika tidak ingin mengubah gambar</small>
+                    </div>
+                    <input type='submit' value='Update' class='btn btn-primary'>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
